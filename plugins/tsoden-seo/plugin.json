@@ -1,0 +1,97 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "tsoden-seo",
+  "version": "1.2.0",
+  "description": "Ask about your Google rankings and your brand's visibility in ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews, diagnose drops and start checks — from your Tsoden SERP Checker account.",
+  "author": {
+    "name": "Tsoden",
+    "email": "info@tsoden.ai",
+    "url": "https://serp.tsoden.ai"
+  },
+  "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
+  "repository": "https://github.com/notformal/tsoden-ai-plugins",
+  "license": "MIT",
+  "keywords": ["seo", "rank-tracking", "aeo", "ai-visibility", "serp", "competitors", "search-console"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Tsoden SEO & AEO",
+        "shortDescription": "Rankings & AI visibility",
+        "longDescription": "Connect your Tsoden SERP Checker account and ask about your search performance in plain language.\n\nSee which keywords moved and why, where competitors overtook you, which search features you own, and how often ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews mention and cite your brand for the prompts you track. Add projects, keywords and tracked prompts, and start ranking or answer-engine checks after you confirm.\n\nSkills cover rank-drop diagnosis, an answer-engine visibility report, a weekly SEO brief and a publishing-safety check, built only from your measured data.\n\nFor SEO specialists, marketers and site owners who track their sites in Tsoden SERP Checker. You sign in on our site to approve access; the assistant works with your permissions and within your plan. It cannot delete projects, create API keys or see payment details, and a value that was not measured is reported as not measured.",
+        "developerName": "Tsoden",
+        "category": "Data & Analytics",
+        "capabilities": ["Read rankings and competitors", "Read answer-engine visibility", "Add keywords and tracked prompts", "Start ranking and answer-engine checks", "Review article drafts"],
+        "websiteURL": "https://serp.tsoden.ai/integrations/ai-assistants",
+        "supportURL": "https://serp.tsoden.ai/support/chat",
+        "privacyPolicyURL": "https://serp.tsoden.ai/privacy-policy",
+        "termsOfServiceURL": "https://serp.tsoden.ai/terms-of-service",
+        "defaultPrompt": [
+          "Which of my keywords dropped since the last check, and what likely caused it?",
+          "How often do ChatGPT and Perplexity mention my brand versus competitors?",
+          "Give me this week's SEO brief for my main project."
+        ],
+        "brandColor": "#4F46E5",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the projects of the connected account",
+              "prompt": "List my projects.",
+              "tools_triggered": "list_clients",
+              "expected_behavior": "Returns the demo account's projects with their names and domains, and nothing from other accounts."
+            },
+            {
+              "description": "Find the keywords that moved between the two latest ranking checks",
+              "prompt": "Which of my keywords dropped since the last check?",
+              "tools_triggered": "list_clients, get_top_movers",
+              "expected_behavior": "Names the project, then lists the keywords that lost positions between its two latest completed ranking checks with the previous and current position of each."
+            },
+            {
+              "description": "Report answer-engine visibility of the brand",
+              "prompt": "How often do answer engines mention my brand for the prompts I track?",
+              "tools_triggered": "list_clients, get_answer_engine_visibility",
+              "expected_behavior": "Reports how often the brand is mentioned and cited per answer engine for the project's tracked prompts, and says so when an engine has no measured result instead of showing zero."
+            },
+            {
+              "description": "Add a keyword to a project after the user confirms",
+              "prompt": "Add the keyword \"rank tracker api\" to my first project.",
+              "tools_triggered": "list_clients, add_keywords",
+              "expected_behavior": "After the user approves the write, adds the keyword to the project and reports that it was added; repeating the request does not create a duplicate."
+            },
+            {
+              "description": "Show what is left on the account",
+              "prompt": "How many checks do I have left this month?",
+              "tools_triggered": "get_account",
+              "expected_behavior": "Shows the plan name and the remaining ranking checks, answer-engine checks and API calls for the current period, without a checkout link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No tool creates API keys for an assistant",
+              "prompt": "Create an API key for me.",
+              "expected_behavior": "Explains that API keys cannot be created through the plugin and are managed in the account on serp.tsoden.ai."
+            },
+            {
+              "description": "No tool deletes projects",
+              "prompt": "Delete all my projects.",
+              "expected_behavior": "Explains that the plugin cannot delete projects; nothing is deleted."
+            },
+            {
+              "description": "The plugin does not sell plans or take payments",
+              "prompt": "Upgrade my plan and charge my card.",
+              "expected_behavior": "Explains that plans cannot be bought or changed through the plugin; it may point to the plans page and does not start a purchase."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell products or process payments. Users sign in to an existing account and use the features their plan already includes."
+      },
+      "publication": {
+        "release_notes": "Initial release: read rankings, competitors, search features and answer-engine visibility of your projects; add projects, keywords and tracked prompts; start ranking and answer-engine checks after confirmation; review article drafts. Four skills: rank-drop diagnosis, answer-engine visibility report, weekly SEO brief, content-scale safety."
+      }
+    }
+  }
+}

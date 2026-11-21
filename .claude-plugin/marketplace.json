@@ -1,0 +1,37 @@
+{
+  "name": "tsoden",
+  "owner": {
+    "name": "Tsoden",
+    "email": "info@tsoden.ai",
+    "url": "https://serp.tsoden.ai"
+  },
+  "metadata": {
+    "description": "SEO and answer-engine (AEO) visibility plugins from Tsoden SERP Checker.",
+    "version": "1.2.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-visibility-audit",
+      "source": "./plugins/ai-visibility-audit",
+      "description": "Free live checks of a site's readiness for AI search: crawler access, llms.txt, entity schema, prompt opportunities.",
+      "category": "seo",
+      "tags": [
+        "seo",
+        "aeo",
+        "ai-search",
+        "free"
+      ]
+    },
+    {
+      "name": "tsoden-seo",
+      "source": "./plugins/tsoden-seo",
+      "description": "Your rankings and AI-answer visibility from a Tsoden SERP Checker account (sign-in required).",
+      "category": "seo",
+      "tags": [
+        "seo",
+        "rank-tracking",
+        "aeo"
+      ]
+    }
+  ]
+}

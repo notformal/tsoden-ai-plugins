@@ -1,0 +1,15 @@
+{
+  "name": "tsoden-seo",
+  "displayName": "Tsoden SEO & AEO",
+  "version": "1.2.0",
+  "description": "Your Google rankings and your brand's visibility in ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews from your Tsoden SERP Checker account: diagnose drops, compare competitors, start checks. Sign in once to approve access.",
+  "author": {
+    "name": "Tsoden",
+    "email": "info@tsoden.ai",
+    "url": "https://serp.tsoden.ai"
+  },
+  "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
+  "repository": "https://github.com/notformal/tsoden-ai-plugins",
+  "license": "MIT",
+  "keywords": ["seo", "rank-tracking", "aeo", "ai-visibility", "serp", "competitors", "search-console"]
+}

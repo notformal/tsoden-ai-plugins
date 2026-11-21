@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ai-visibility": {
+      "type": "http",
+      "url": "https://serp.tsoden.ai/mcp/free"
+    }
+  }
+}

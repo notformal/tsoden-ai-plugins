@@ -1,0 +1,14 @@
+interface:
+  display_name: "Content scale safety"
+  short_description: "Publish without a site penalty"
+  default_prompt: "Is it safe to publish more articles on my site?"
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tsoden"
+      description: "Tsoden SERP Checker account (OAuth)"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp"

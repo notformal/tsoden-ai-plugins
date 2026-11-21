@@ -1,0 +1,14 @@
+interface:
+  display_name: "Entity schema builder"
+  short_description: "Organization JSON-LD from page"
+  default_prompt: "Build Organization schema for example.com from facts on the page."
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ai-visibility"
+      description: "Free live AI-visibility checks"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp/free"

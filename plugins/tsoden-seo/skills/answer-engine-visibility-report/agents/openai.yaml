@@ -1,0 +1,14 @@
+interface:
+  display_name: "AI visibility report"
+  short_description: "Brand mentions in AI answers"
+  default_prompt: "How often do answer engines mention my brand versus competitors?"
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tsoden"
+      description: "Tsoden SERP Checker account (OAuth)"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp"

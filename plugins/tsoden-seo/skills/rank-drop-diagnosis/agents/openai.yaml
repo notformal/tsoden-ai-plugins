@@ -1,0 +1,14 @@
+interface:
+  display_name: "Rank-drop diagnosis"
+  short_description: "Why rankings moved"
+  default_prompt: "Why did my rankings drop since the last check?"
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tsoden"
+      description: "Tsoden SERP Checker account (OAuth)"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp"

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-visibility-audit",
+  "version": "1.2.0",
+  "description": "Live checks of how ready any website is to be found and quoted by ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews, with step-by-step fixes.",
+  "author": {
+    "name": "Tsoden",
+    "email": "info@tsoden.ai",
+    "url": "https://serp.tsoden.ai"
+  },
+  "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
+  "repository": "https://github.com/notformal/tsoden-ai-plugins",
+  "license": "MIT",
+  "keywords": ["seo", "aeo", "geo", "ai-search", "llms-txt", "schema", "robots-txt", "ai-visibility"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Tsoden AI Visibility Audit",
+        "shortDescription": "Is your site AI-search ready?",
+        "longDescription": "Find out whether answer engines can read, understand and quote a website — and what to fix first.\n\nThe plugin runs live checks on any public site: an AI-search readiness score with pass/warn/fail checks, which AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and others) robots.txt blocks, whether llms.txt exists and is valid, which entity facts the structured data gives an answer engine, and which questions the brand could be recommended for.\n\nSkills turn the results into work: a prioritized fix list, a ready-to-publish llms.txt, Organization / LocalBusiness JSON-LD built only from facts on the page, and a prompt-tracking plan. Every check returns a shareable result page. No account needed.",
+        "developerName": "Tsoden",
+        "category": "Productivity",
+        "capabilities": ["Audit AI-search readiness", "Check AI crawler access and llms.txt", "Check entity structured data", "Find prompt opportunities"],
+        "websiteURL": "https://serp.tsoden.ai/integrations/ai-assistants",
+        "supportURL": "https://serp.tsoden.ai/support/chat",
+        "privacyPolicyURL": "https://serp.tsoden.ai/privacy-policy",
+        "termsOfServiceURL": "https://serp.tsoden.ai/terms-of-service",
+        "defaultPrompt": [
+          "Is example.com ready to be quoted by ChatGPT and Perplexity? What should I fix first?",
+          "Check which AI crawlers my robots.txt blocks and write me an llms.txt.",
+          "Build Organization schema for my homepage from what is already on the page."
+        ],
+        "brandColor": "#4F46E5",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Audit a public website's readiness for AI search",
+              "prompt": "Is serp.tsoden.ai ready to be quoted by ChatGPT and Perplexity? What should I fix first?",
+              "tools_triggered": "audit_ai_readiness",
+              "expected_behavior": "Returns an AI-readiness score from 0 to 100 and an SEO hygiene score for serp.tsoden.ai with the pass, warn and fail checks, then lists fixes in priority order."
+            },
+            {
+              "description": "Read which AI crawlers robots.txt allows or blocks",
+              "prompt": "Which AI crawlers does nytimes.com block in robots.txt?",
+              "tools_triggered": "check_ai_crawler_access",
+              "expected_behavior": "Lists each AI crawler as allowed or blocked as read from the site's live robots.txt, says whether llms.txt exists, and gives a link to the result page on serp.tsoden.ai."
+            },
+            {
+              "description": "Check llms.txt and draft one from the site's real pages",
+              "prompt": "Does example.com have an llms.txt? Write one for it.",
+              "tools_triggered": "check_ai_crawler_access",
+              "expected_behavior": "Reports whether /llms.txt exists and is valid, then drafts an llms.txt that links only to pages found on the site, with no invented URLs."
+            },
+            {
+              "description": "Check the entity structured data of a page",
+              "prompt": "Check the Organization schema on serp.tsoden.ai.",
+              "tools_triggered": "check_schema_readiness",
+              "expected_behavior": "Reports which entity signals (name, URL, logo, description, sameAs profiles, contact) are present or missing in the page's JSON-LD, with a link to the result page."
+            },
+            {
+              "description": "Suggest the questions a brand could be recommended for",
+              "prompt": "Which questions could answer engines recommend serp.tsoden.ai for?",
+              "tools_triggered": "find_prompt_opportunities",
+              "expected_behavior": "Returns a list of prompts grouped by intent that the brand could plausibly be recommended for, with a link to the result page."
+            }
+          ],
+          "negative": [
+            {
+              "description": "A request unrelated to websites does not use the plugin",
+              "prompt": "What is the weather in Paris?",
+              "expected_behavior": "No tool of the plugin is called."
+            },
+            {
+              "description": "A non-public address is refused",
+              "prompt": "Audit http://localhost:8080",
+              "expected_behavior": "The tool answers that the address is not a public website; the assistant says so and runs no check."
+            },
+            {
+              "description": "No ranking guarantee is given",
+              "prompt": "Guarantee that my site will be the first answer in ChatGPT.",
+              "expected_behavior": "Explains that no result can be guaranteed and offers the checks and fixes the plugin can provide."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell products or process payments. Its checks need no account."
+      },
+      "publication": {
+        "release_notes": "Initial release: live AI-search readiness audit, AI crawler access and llms.txt check, entity structured data check and prompt opportunities for any public website. Four skills: readiness audit, llms.txt builder, entity schema builder, prompt opportunity plan."
+      }
+    }
+  }
+}

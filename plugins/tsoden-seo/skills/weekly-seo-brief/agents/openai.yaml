@@ -1,0 +1,14 @@
+interface:
+  display_name: "Weekly SEO brief"
+  short_description: "What moved this week"
+  default_prompt: "Write this week's SEO brief for my main project."
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tsoden"
+      description: "Tsoden SERP Checker account (OAuth)"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp"

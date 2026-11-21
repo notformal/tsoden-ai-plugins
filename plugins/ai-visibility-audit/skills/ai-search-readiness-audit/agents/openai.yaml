@@ -1,0 +1,14 @@
+interface:
+  display_name: "AI-search readiness audit"
+  short_description: "Score a site and list fixes"
+  default_prompt: "Audit example.com for AI-search readiness and tell me what to fix first."
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ai-visibility"
+      description: "Free live AI-visibility checks"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp/free"

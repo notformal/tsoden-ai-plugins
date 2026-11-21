@@ -1,0 +1,10 @@
+{
+  "name": "ai-visibility-audit",
+  "version": "1.2.0",
+  "description": "Free live checks of a website's readiness for AI search (crawler access, llms.txt, entity schema).",
+  "mcpServers": {
+    "ai-visibility": {
+      "httpUrl": "https://serp.tsoden.ai/mcp/free"
+    }
+  }
+}

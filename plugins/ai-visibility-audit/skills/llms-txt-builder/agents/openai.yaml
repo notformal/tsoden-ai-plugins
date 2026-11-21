@@ -1,0 +1,14 @@
+interface:
+  display_name: "llms.txt builder"
+  short_description: "Check and write llms.txt"
+  default_prompt: "Check my llms.txt and write a better one for example.com."
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ai-visibility"
+      description: "Free live AI-visibility checks"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp/free"

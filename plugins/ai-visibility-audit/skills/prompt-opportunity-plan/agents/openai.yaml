@@ -1,0 +1,14 @@
+interface:
+  display_name: "Prompt opportunity plan"
+  short_description: "Prompts to track and win"
+  default_prompt: "Which prompts could ChatGPT recommend example.com for?"
+policy:
+  allow_implicit_invocation: true
+  products: [CHAT, CODEX]
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ai-visibility"
+      description: "Free live AI-visibility checks"
+      transport: "streamable_http"
+      url: "https://serp.tsoden.ai/mcp/free"

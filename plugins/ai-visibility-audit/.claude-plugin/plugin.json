@@ -1,0 +1,15 @@
+{
+  "name": "ai-visibility-audit",
+  "displayName": "Tsoden AI Visibility Audit",
+  "version": "1.2.0",
+  "description": "Free live checks of how ready any website is to be found and quoted by ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews: AI crawler access, llms.txt, entity schema, prompt opportunities — plus skills that turn the results into fixes.",
+  "author": {
+    "name": "Tsoden",
+    "email": "info@tsoden.ai",
+    "url": "https://serp.tsoden.ai"
+  },
+  "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
+  "repository": "https://github.com/notformal/tsoden-ai-plugins",
+  "license": "MIT",
+  "keywords": ["seo", "aeo", "geo", "ai-search", "llms-txt", "schema", "robots-txt", "ai-visibility"]
+}
