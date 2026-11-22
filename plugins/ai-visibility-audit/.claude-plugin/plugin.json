@@ -11,6 +11,9 @@
   "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
   "repository": "https://github.com/notformal/tsoden-ai-plugins",
   "privacyPolicyUrl": "https://serp.tsoden.ai/privacy-policy",
+  "termsOfServiceUrl": "https://serp.tsoden.ai/terms-of-service",
+  "supportUrl": "https://serp.tsoden.ai/support/chat",
+  "documentationUrl": "https://serp.tsoden.ai/integrations/ai-assistants",
   "license": "MIT",
   "keywords": ["seo", "aeo", "geo", "ai-search", "llms-txt", "schema", "robots-txt", "ai-visibility"]
 }
