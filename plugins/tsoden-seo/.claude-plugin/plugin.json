@@ -10,6 +10,7 @@
   },
   "homepage": "https://serp.tsoden.ai/integrations/ai-assistants",
   "repository": "https://github.com/notformal/tsoden-ai-plugins",
+  "privacyPolicyUrl": "https://serp.tsoden.ai/privacy-policy",
   "license": "MIT",
   "keywords": ["seo", "rank-tracking", "aeo", "ai-visibility", "serp", "competitors", "search-console"]
 }
